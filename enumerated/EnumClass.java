@@ -8,23 +8,43 @@ enum Shrubbery {
 public class EnumClass {
 	public static void main(String[] args) {
 		for (Shrubbery s : Shrubbery.values()) {
-			// ordinalè¿”å›ä¸€ä¸ªintå€¼,æ˜¯æ¯ä¸ªenumå®ä¾‹å£°æ˜æ—¶çš„æ¬¡åº
+			// ordinal·µ»ØÒ»¸öintÖµ,ÊÇÃ¿¸öenumÊµÀıÉùÃ÷Ê±µÄ´ÎĞò
 			System.out.println(s + " ordinal: " + s.ordinal());
 			System.out.print(s.compareTo(Shrubbery.CRAWLING) + " ");
 			System.out.print(s.equals(Shrubbery.CRAWLING) + " ");
-			// å¯ä»¥ç”¨==æ¥æ¯”è¾ƒenumå®ä¾‹
+			// ¿ÉÒÔÓÃ==À´±È½ÏenumÊµÀı
 			System.out.println(s == Shrubbery.CRAWLING);
-			// è°ƒç”¨getDeclaringClasså¯ä»¥çŸ¥é“å…¶æ‰€å±çš„enumç±»
+			// µ÷ÓÃgetDeclaringClass¿ÉÒÔÖªµÀÆäËùÊôµÄenumÀà
 			System.out.println(s.getDeclaringClass());
 			System.out.println(s.name());
 			System.out.println("-----------------------------------------");
 		}
 		// Produce an enum value from a string name:
 		for (String s : "HANGING CRAWLING GROUND".split(" ")) {
-			// valueOfæ˜¯Enumä¸­å®šä¹‰çš„staticæ–¹æ³•,æ ¹æ®ç»™å®šåå­—è¿”å›ç›¸åº”çš„enumå®ä¾‹,
-			// å¦‚æœä¸å­˜åœ¨ç»™å®šåå­—çš„å®ä¾‹,å°†ä¼šæŠ›å‡ºå¼‚å¸¸
+			// valueOfÊÇEnumÖĞ¶¨ÒåµÄstatic·½·¨,¸ù¾İ¸ø¶¨Ãû×Ö·µ»ØÏàÓ¦µÄenumÊµÀı,
+			// Èç¹û²»´æÔÚ¸ø¶¨Ãû×ÖµÄÊµÀı,½«»áÅ×³öÒì³£
 			Shrubbery shrub = Enum.valueOf(Shrubbery.class, s);
 			System.out.println(shrub);
 		}
 	}
 }
+/**Output:
+ GROUND ordinal: 0
+-1 false false
+class enumerated.Shrubbery
+GROUND
+-----------------------------------------
+CRAWLING ordinal: 1
+0 true true
+class enumerated.Shrubbery
+CRAWLING
+-----------------------------------------
+HANGING ordinal: 2
+1 false false
+class enumerated.Shrubbery
+HANGING
+-----------------------------------------
+HANGING
+CRAWLING
+GROUND
+ */
